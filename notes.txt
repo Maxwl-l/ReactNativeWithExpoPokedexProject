@@ -1,0 +1,43 @@
+How are apps made?
+Any app uses a mobile OS. The two most dominating companies in this are Apple and Google/
+ios and android respectively.
+Both have their own frameworks, SwiftUI for apple, Jetpack Compose(written in Kotlin) for Google.
+
+A native application is a software program built specifically for a single,
+designated operating system or platform.
+
+React native released by META in 2015, allowed you to use one shared code for both IOS and android
+applications.
+
+How does React Native work?
+Think of 3 layers: JS react code, JSI(Javascript Interface), Native Swift/Kotlin
+In JS you write your react companents: Logic, UI using react and JS.
+
+JSI acts as a bridge between JS and the native world. It translates what the react components describe
+(like show an image) to the specific platform native code. This makes the JS and native code seperate
+and what allows for over-the-air updates. You can swap the native part as long as its compatible with
+the JSI bundle.
+
+Native: you write in the platform's own language and tools (Swift for iPhone, Kotlin for
+Android), and the result runs directly on that platform. Nothing sits between your code and
+the system.
+
+Non-native (cross-platform): you write in something else (JavaScript, Dart, Python), and a
+layer in the middle connects your code to the phone. That layer is what "uses native code"
+means: the framework itself is built from native code underneath, and your code runs on top 
+of it.
+
+A framework in programming is a pre-built structure, foundation, or blueprint that provides 
+a standardized way to build and deploy applications. Sort of like libraries, but instead of you
+choosing where and how to use the function of the library, the structure of your app depends
+on the framework you use. library is a tool, framework is a blueprint.
+
+In the same manner, Expo is a full stack framework that you can use for react native. Recommended
+by meta themselves and is gives you a ton of tools to use. Makes it so that you can use react 
+native without having to "reinvent the wheel".
+
+One tool from Expo is called Expo go, and it's a sandbox that lets you quickly experiment
+with building native apps. You use it on your phone. It has most of expo's native modules like:
+camera, contacts, media library, etc. Lets you test your javascript on your phone via expo go.
+
+more info visit: code with Beto react native course.
