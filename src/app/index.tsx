@@ -2,7 +2,7 @@ import { Link } from "expo-router";
 import { useEffect, useState } from "react";
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
  
-interface Pokemon {
+interface Pokemon { // defines the structure of a Pokemon object
   name: string;
   image: string;
   backImage: string;
@@ -41,7 +41,7 @@ export default function Index() {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]); // sets the data from api into a state variable called pokemons. The setter is setPokemons
 
 
-  useEffect(() => {
+  useEffect(() => { 
     //fetch pokemon
     fetchPokemons();
   }, []);
@@ -49,17 +49,18 @@ export default function Index() {
   async function fetchPokemons() {
     try
     {
-      const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=20"); // Fetch lets us hit the api
+      const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=50"); // Fetch lets us hit the api
       const data = await response.json();
 
       const detailedPokemons = await Promise.all( // fetches the detailed data for each pokemon in parallel
         data.results.map(async (pokemon: any) => { 
           const response = await fetch(pokemon.url); 
           const detailedData = await response.json();
-          return { name: pokemon.name, 
+          return { 
+            name: pokemon.name, 
             image: detailedData.sprites.front_default,
             backImage: detailedData.sprites.back_default,
-            types: detailedData.types }; // returns the name and image of the pokemon
+            types: detailedData.types };
         }
       )
     );
